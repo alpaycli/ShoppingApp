@@ -9,21 +9,41 @@
 /* Begin PBXBuildFile section */
 		C97CB87D2A9F5E3600ED78EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB87C2A9F5E3600ED78EB /* AppDelegate.swift */; };
 		C97CB87F2A9F5E3600ED78EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB87E2A9F5E3600ED78EB /* SceneDelegate.swift */; };
-		C97CB8812A9F5E3600ED78EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8802A9F5E3600ED78EB /* ViewController.swift */; };
-		C97CB8842A9F5E3600ED78EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97CB8822A9F5E3600ED78EB /* Main.storyboard */; };
+		C97CB8812A9F5E3600ED78EB /* ClothesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8802A9F5E3600ED78EB /* ClothesVC.swift */; };
 		C97CB8862A9F5E3A00ED78EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97CB8852A9F5E3A00ED78EB /* Assets.xcassets */; };
 		C97CB8892A9F5E3A00ED78EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97CB8872A9F5E3A00ED78EB /* LaunchScreen.storyboard */; };
+		C97CB8912A9F5F3500ED78EB /* SPTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8902A9F5F3500ED78EB /* SPTabBarController.swift */; };
+		C97CB8982A9F62BD00ED78EB /* ProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8972A9F62BD00ED78EB /* ProductsVC.swift */; };
+		C97CB89B2A9F9B8100ED78EB /* SPBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB89A2A9F9B8100ED78EB /* SPBodyLabel.swift */; };
+		C97CB89E2A9F9BAF00ED78EB /* SPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB89D2A9F9BAF00ED78EB /* SPButton.swift */; };
+		C97CB8A02A9F9BC600ED78EB /* SPTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB89F2A9F9BC600ED78EB /* SPTitleLabel.swift */; };
+		C97CB8A32A9F9CE200ED78EB /* ClotheCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8A22A9F9CE200ED78EB /* ClotheCell.swift */; };
+		C97CB8A52A9F9CF200ED78EB /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8A42A9F9CF200ED78EB /* ProductCell.swift */; };
+		C97CB8A72A9F9DD600ED78EB /* ItemImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8A62A9F9DD600ED78EB /* ItemImageView.swift */; };
+		C97CB8AA2A9F9E2000ED78EB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8A92A9F9E2000ED78EB /* NetworkManager.swift */; };
+		C97CB8AD2A9F9F0F00ED78EB /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8AC2A9F9F0F00ED78EB /* Product.swift */; };
+		C97CB8AF2A9FA6D100ED78EB /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8AE2A9FA6D100ED78EB /* APIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C97CB8792A9F5E3600ED78EB /* ShoppingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97CB87C2A9F5E3600ED78EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C97CB87E2A9F5E3600ED78EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C97CB8802A9F5E3600ED78EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C97CB8832A9F5E3600ED78EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C97CB8802A9F5E3600ED78EB /* ClothesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesVC.swift; sourceTree = "<group>"; };
 		C97CB8852A9F5E3A00ED78EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C97CB8882A9F5E3A00ED78EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C97CB88A2A9F5E3A00ED78EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C97CB8902A9F5F3500ED78EB /* SPTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPTabBarController.swift; sourceTree = "<group>"; };
+		C97CB8972A9F62BD00ED78EB /* ProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsVC.swift; sourceTree = "<group>"; };
+		C97CB89A2A9F9B8100ED78EB /* SPBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPBodyLabel.swift; sourceTree = "<group>"; };
+		C97CB89D2A9F9BAF00ED78EB /* SPButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPButton.swift; sourceTree = "<group>"; };
+		C97CB89F2A9F9BC600ED78EB /* SPTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPTitleLabel.swift; sourceTree = "<group>"; };
+		C97CB8A22A9F9CE200ED78EB /* ClotheCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClotheCell.swift; sourceTree = "<group>"; };
+		C97CB8A42A9F9CF200ED78EB /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		C97CB8A62A9F9DD600ED78EB /* ItemImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImageView.swift; sourceTree = "<group>"; };
+		C97CB8A92A9F9E2000ED78EB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C97CB8AC2A9F9F0F00ED78EB /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		C97CB8AE2A9FA6D100ED78EB /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +76,105 @@
 		C97CB87B2A9F5E3600ED78EB /* ShoppingApp */ = {
 			isa = PBXGroup;
 			children = (
-				C97CB87C2A9F5E3600ED78EB /* AppDelegate.swift */,
-				C97CB87E2A9F5E3600ED78EB /* SceneDelegate.swift */,
-				C97CB8802A9F5E3600ED78EB /* ViewController.swift */,
-				C97CB8822A9F5E3600ED78EB /* Main.storyboard */,
-				C97CB8852A9F5E3A00ED78EB /* Assets.xcassets */,
-				C97CB8872A9F5E3A00ED78EB /* LaunchScreen.storyboard */,
+				C97CB8902A9F5F3500ED78EB /* SPTabBarController.swift */,
+				C97CB8AB2A9F9F0400ED78EB /* Models */,
+				C97CB8A82A9F9E1300ED78EB /* Networking */,
+				C97CB8922A9F5FA700ED78EB /* Utilities */,
+				C97CB8962A9F5FF800ED78EB /* Screens */,
+				C97CB8932A9F5FC900ED78EB /* ViewComponents */,
 				C97CB88A2A9F5E3A00ED78EB /* Info.plist */,
 			);
 			path = ShoppingApp;
+			sourceTree = "<group>";
+		};
+		C97CB8922A9F5FA700ED78EB /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C97CB87C2A9F5E3600ED78EB /* AppDelegate.swift */,
+				C97CB87E2A9F5E3600ED78EB /* SceneDelegate.swift */,
+				C97CB8872A9F5E3A00ED78EB /* LaunchScreen.storyboard */,
+				C97CB8852A9F5E3A00ED78EB /* Assets.xcassets */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C97CB8932A9F5FC900ED78EB /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				C97CB8A12A9F9CAA00ED78EB /* Cells */,
+				C97CB89C2A9F9B8700ED78EB /* Buttons */,
+				C97CB8992A9F9B6700ED78EB /* Labels */,
+				C97CB8952A9F5FF100ED78EB /* ViewControllers */,
+				C97CB8942A9F5FEC00ED78EB /* Views */,
+			);
+			path = ViewComponents;
+			sourceTree = "<group>";
+		};
+		C97CB8942A9F5FEC00ED78EB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C97CB8A62A9F9DD600ED78EB /* ItemImageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C97CB8952A9F5FF100ED78EB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C97CB8962A9F5FF800ED78EB /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				C97CB8802A9F5E3600ED78EB /* ClothesVC.swift */,
+				C97CB8972A9F62BD00ED78EB /* ProductsVC.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		C97CB8992A9F9B6700ED78EB /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				C97CB89F2A9F9BC600ED78EB /* SPTitleLabel.swift */,
+				C97CB89A2A9F9B8100ED78EB /* SPBodyLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		C97CB89C2A9F9B8700ED78EB /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				C97CB89D2A9F9BAF00ED78EB /* SPButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		C97CB8A12A9F9CAA00ED78EB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C97CB8A22A9F9CE200ED78EB /* ClotheCell.swift */,
+				C97CB8A42A9F9CF200ED78EB /* ProductCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		C97CB8A82A9F9E1300ED78EB /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C97CB8A92A9F9E2000ED78EB /* NetworkManager.swift */,
+				C97CB8AE2A9FA6D100ED78EB /* APIService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		C97CB8AB2A9F9F0400ED78EB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C97CB8AC2A9F9F0F00ED78EB /* Product.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +237,6 @@
 			files = (
 				C97CB8892A9F5E3A00ED78EB /* LaunchScreen.storyboard in Resources */,
 				C97CB8862A9F5E3A00ED78EB /* Assets.xcassets in Resources */,
-				C97CB8842A9F5E3600ED78EB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +247,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C97CB8812A9F5E3600ED78EB /* ViewController.swift in Sources */,
+				C97CB8AA2A9F9E2000ED78EB /* NetworkManager.swift in Sources */,
+				C97CB8A32A9F9CE200ED78EB /* ClotheCell.swift in Sources */,
+				C97CB89E2A9F9BAF00ED78EB /* SPButton.swift in Sources */,
+				C97CB8982A9F62BD00ED78EB /* ProductsVC.swift in Sources */,
+				C97CB8A02A9F9BC600ED78EB /* SPTitleLabel.swift in Sources */,
+				C97CB8812A9F5E3600ED78EB /* ClothesVC.swift in Sources */,
 				C97CB87D2A9F5E3600ED78EB /* AppDelegate.swift in Sources */,
+				C97CB89B2A9F9B8100ED78EB /* SPBodyLabel.swift in Sources */,
+				C97CB8AF2A9FA6D100ED78EB /* APIService.swift in Sources */,
+				C97CB8A52A9F9CF200ED78EB /* ProductCell.swift in Sources */,
+				C97CB8AD2A9F9F0F00ED78EB /* Product.swift in Sources */,
+				C97CB8912A9F5F3500ED78EB /* SPTabBarController.swift in Sources */,
 				C97CB87F2A9F5E3600ED78EB /* SceneDelegate.swift in Sources */,
+				C97CB8A72A9F9DD600ED78EB /* ItemImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C97CB8822A9F5E3600ED78EB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C97CB8832A9F5E3600ED78EB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C97CB8872A9F5E3A00ED78EB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +404,6 @@
 				INFOPLIST_FILE = ShoppingApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +431,6 @@
 				INFOPLIST_FILE = ShoppingApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

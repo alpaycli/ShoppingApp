@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ProductsVC.swift
 //  ShoppingApp
 //
 //  Created by Alpay Calalli on 30.08.23.
@@ -7,13 +7,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ProductsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .systemMint
     }
 
-
 }
-

@@ -7,20 +7,58 @@
 
 import UIKit
 
+/*
+ "mens-shirts",
+   "mens-shoes",
+   "mens-watches",
+   "womens-watches",
+   "womens-bags",
+   "womens-jewellery",
+   "sunglasses",
+   "automotive",
+   "motorcycle",
+   "lighting"
+ 
+ */
+
 enum ProductType: String {
     case smartphones = "smartphones"
+    case laptops = "laptops"
+    case fragrances
+    case skincare
+    case groceries
+    case homeDecoration = "home-decoration"
+    case furniture
+    case tops
+    case womensDresses = "womens-dresses"
+    case womensShoes = "womens-shoes"
+    case womensWatches = "womens-watches"
+    case womensBags = "womens-bags"
+    case womensJewellery = "womens-jewellery"
+    case mensShirts = "mens-shirts"
+    case menShoes = "mens-shoes"
+    case mensWatches = "mens-watches"
+    case sunglasses
+    case automotive
+    case motorcycle
 }
 
 class ClothesVC: UIViewController {
 
     private var collectionView: UICollectionView!
     
-    var products: [Product] = []
+    var smartphones: [Product] = []
+    var laptops: [Product] = []
+    
+    var womensDresses: [Product] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        navigationController?.navigationBar.prefersLargeTitles = true
         fetchProduct(for: .smartphones)
+        fetchProduct(for: .laptops)
+        fetchProduct(for: .womensDresses)
         configureCollectionView()
     }
     
@@ -28,8 +66,10 @@ class ClothesVC: UIViewController {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createCompositionalLayout() )
         view.addSubview(collectionView)
         collectionView.dataSource = self
+        collectionView.delegate = self
         
         collectionView.register(ClotheCell.self, forCellWithReuseIdentifier: ClotheCell.reuseId)
+        collectionView.register(ProductCell.self, forCellWithReuseIdentifier: ProductCell.reuseId)
                 
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -46,6 +86,7 @@ class ClothesVC: UIViewController {
             switch section {
             case 0: return self.createFirstSection()
             case 1: return self.createSecondSection()
+            case 2: return self.createThirdSection()
             default: return self.createFirstSection()
             }
         }
@@ -55,7 +96,7 @@ class ClothesVC: UIViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1.0))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 60, trailing: 5)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.50), heightDimension: .fractionalHeight(0.55))
                 
@@ -72,7 +113,7 @@ class ClothesVC: UIViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1.0))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 60, trailing: 5)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.50), heightDimension: .fractionalHeight(0.55))
                 
@@ -81,6 +122,22 @@ class ClothesVC: UIViewController {
         
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .paging
+        
+        return section
+    }
+    
+    private func createThirdSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
+        
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 25, leading: 5, bottom: 25, trailing: 5)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.50), heightDimension: .fractionalHeight(0.4))
+                
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+        group.contentInsets = .init(top: 0, leading: 15, bottom: 0, trailing: 0)
+        
+        let section = NSCollectionLayoutSection(group: group)
         
         return section
     }
@@ -95,7 +152,16 @@ class ClothesVC: UIViewController {
             switch result {
             case .success(let result):
                 DispatchQueue.main.async {
-                    self.products = result.products
+                    switch type {
+                    case .smartphones:
+                        self.smartphones = result.products
+                    case .laptops:
+                        self.laptops = result.products
+                    case .womensDresses:
+                        self.womensDresses = result.products
+                    default:
+                        return
+                    }
                     self.collectionView.reloadData()
                     // many things to come
                 }
@@ -105,35 +171,65 @@ class ClothesVC: UIViewController {
         }
     }
     
-    
+}
+
+extension ClothesVC: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var product: Product
+        switch indexPath.section {
+        case 0:
+            product = smartphones[indexPath.row]
+        case 1:
+            product = laptops[indexPath.row]
+        default:
+            product = womensDresses[indexPath.row]
+        }
+        
+        let destinationVC = ProductDetailVC(product: product)
+        navigationController?.pushViewController(destinationVC, animated: true)
+    }
 }
 
 
 extension ClothesVC: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return products.count
+        switch section {
+        case 0:
+            return smartphones.count
+        case 1:
+            return laptops.count
+        case 2:
+            return womensDresses.count - 2
+        default:
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ClotheCell.reuseId, for: indexPath) as! ClotheCell
-        
+        let clotheCell = collectionView.dequeueReusableCell(withReuseIdentifier: ClotheCell.reuseId, for: indexPath) as! ClotheCell
+        let productCell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.reuseId, for: indexPath) as! ProductCell
+                
         switch indexPath.section {
         case 0:
-            let product = products[indexPath.row]
-            cell.set(product: product)
+            let product = smartphones[indexPath.row]
+            clotheCell.set(product: product)
+            return clotheCell
         case 1:
-            let product = products[indexPath.row]
-            cell.set(product: product)
+            let product = laptops[indexPath.row]
+            clotheCell.set(product: product)
+            return clotheCell
+        case 2:
+            let product = womensDresses[0...2][indexPath.row]
+            productCell.set(product: product)
+            return productCell
         default:
-            break
+            return clotheCell
         }
-        
-        return cell
     }
     
 }

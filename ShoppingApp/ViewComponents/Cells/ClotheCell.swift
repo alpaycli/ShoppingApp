@@ -46,15 +46,15 @@ class ClotheCell: UICollectionViewCell {
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
             
-            priceLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5),
-            priceLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
-            priceLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
-            priceLabel.heightAnchor.constraint(equalToConstant: 10),
+            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8),
+            nameLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
+            nameLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
+            nameLabel.heightAnchor.constraint(equalToConstant: 20),
             
-            nameLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: priceLabel.leadingAnchor),
-            nameLabel.trailingAnchor.constraint(equalTo: priceLabel.trailingAnchor),
-            nameLabel.heightAnchor.constraint(equalToConstant: 40)
+            priceLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
+            priceLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
+            priceLabel.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor),
+            priceLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
 }

@@ -12,7 +12,8 @@ class ProductDetailVC: UIViewController {
     private let imageView = ItemImageView(frame: .zero)
     private let saveButton = UIButton()
     private let priceLabel = SPTitleLabel(textAlignment: .left, fontSize: 20)
-    private let titleLabel = SPBodyLabel(textAlignment: .left)
+    private let titleLabel = SPTitleLabel(textAlignment: .left, fontSize: 24)
+    private let descriptionLabel = SPBodyLabel(textAlignment: .left)
     private let ratingLabel = SPTitleLabel(textAlignment: .left, fontSize: 20)
     private let addToBagButton = SPButton(backgroundColor: .systemGreen, title: "ADD TO BAG")
     
@@ -30,7 +31,7 @@ class ProductDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        view.addSubviews(imageView, saveButton, priceLabel, titleLabel, ratingLabel, addToBagButton)
+        view.addSubviews(imageView, saveButton, priceLabel, titleLabel, descriptionLabel, ratingLabel, addToBagButton)
         configureElementsContent()
         configureSaveButton()
         configureUI()
@@ -40,12 +41,14 @@ class ProductDetailVC: UIViewController {
         imageView.downloadImage(fromURL: product.images[0])
         priceLabel.text = "$ \(product.price)"
         titleLabel.text = product.title
+        descriptionLabel.text = product.description
+        descriptionLabel.numberOfLines = 2
         ratingLabel.text = "⭐️ \(product.rating)"
     }
         
     private func configureUI() {
         
-        let smallComponents = [priceLabel, titleLabel, ratingLabel, addToBagButton]
+        let smallComponents = [priceLabel, titleLabel, descriptionLabel, ratingLabel, addToBagButton]
         
         for item in smallComponents {
             item.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
@@ -69,8 +72,11 @@ class ProductDetailVC: UIViewController {
             titleLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 5),
             titleLabel.heightAnchor.constraint(equalToConstant: 40),
             
-            ratingLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
-            ratingLabel.heightAnchor.constraint(equalToConstant: 25),
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
+            descriptionLabel.heightAnchor.constraint(equalToConstant: 40),
+            
+            ratingLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
+            ratingLabel.heightAnchor.constraint(equalToConstant: 30),
             
             addToBagButton.topAnchor.constraint(equalTo: ratingLabel.bottomAnchor, constant: 30),
             addToBagButton.heightAnchor.constraint(equalToConstant: 45)

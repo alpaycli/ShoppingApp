@@ -47,9 +47,10 @@ class ClothesVC: UIViewController {
 
     private var collectionView: UICollectionView!
     
+    var sections: [ProductType] = [.smartphones, .laptops, .womensDresses, .tops, .skincare]
+    
     var smartphones: [Product] = []
     var laptops: [Product] = []
-    
     var womensDresses: [Product] = []
     
     override func viewDidLoad() {
@@ -68,6 +69,7 @@ class ClothesVC: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
+        collectionView.register(HeaderItemCell.self, forCellWithReuseIdentifier: HeaderItemCell.reuseId)
         collectionView.register(ClotheCell.self, forCellWithReuseIdentifier: ClotheCell.reuseId)
         collectionView.register(ProductCell.self, forCellWithReuseIdentifier: ProductCell.reuseId)
                 
@@ -84,12 +86,30 @@ class ClothesVC: UIViewController {
 
         return UICollectionViewCompositionalLayout { section, env -> NSCollectionLayoutSection? in
             switch section {
-            case 0: return self.createFirstSection()
-            case 1: return self.createSecondSection()
-            case 2: return self.createThirdSection()
-            default: return self.createFirstSection()
+            case 0: return self.createHeaderSection()
+            case 1: return self.createFirstSection()
+            case 2: return self.createSecondSection()
+            case 3: return self.createThirdSection()
+            default: return self.createHeaderSection()
             }
         }
+    }
+    
+    func createHeaderSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.3), heightDimension: .fractionalHeight(0.3))
+                
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        group.contentInsets = .init(top: 0, leading: 15, bottom: 0, trailing: 2)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .continuous
+        
+        return section
     }
     
     private func createFirstSection() -> NSCollectionLayoutSection {
@@ -163,7 +183,7 @@ class ClothesVC: UIViewController {
                         return
                     }
                     self.collectionView.reloadData()
-                    // many things to come
+                    
                 }
             case .failure(let error):
                 print("Error: ", error)
@@ -175,18 +195,26 @@ class ClothesVC: UIViewController {
 
 extension ClothesVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var product: Product
+        var product: Product?
+        
         switch indexPath.section {
         case 0:
-            product = smartphones[indexPath.row]
+            break;
         case 1:
+            product = smartphones[indexPath.row]
+        case 2:
             product = laptops[indexPath.row]
-        default:
+        case 3:
             product = womensDresses[indexPath.row]
+        default:
+            break
         }
         
-        let destinationVC = ProductDetailVC(product: product)
-        navigationController?.pushViewController(destinationVC, animated: true)
+        if let product = product {
+            let destinationVC = ProductDetailVC(product: product)
+            navigationController?.pushViewController(destinationVC, animated: true)
+        }
+        
     }
 }
 
@@ -194,16 +222,18 @@ extension ClothesVC: UICollectionViewDelegate {
 extension ClothesVC: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return smartphones.count
+            return sections.count
         case 1:
-            return laptops.count
+            return smartphones.count
         case 2:
+            return laptops.count
+        case 3:
             return womensDresses.count - 2
         default:
             return 0
@@ -211,19 +241,26 @@ extension ClothesVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let headerItemCell = collectionView.dequeueReusableCell(withReuseIdentifier: HeaderItemCell.reuseId, for: indexPath) as! HeaderItemCell
+        
         let clotheCell = collectionView.dequeueReusableCell(withReuseIdentifier: ClotheCell.reuseId, for: indexPath) as! ClotheCell
         let productCell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.reuseId, for: indexPath) as! ProductCell
                 
         switch indexPath.section {
         case 0:
+            let item = sections[indexPath.row]
+            headerItemCell.set(type: item)
+            return headerItemCell
+        case 1:
             let product = smartphones[indexPath.row]
             clotheCell.set(product: product)
             return clotheCell
-        case 1:
+        case 2:
             let product = laptops[indexPath.row]
             clotheCell.set(product: product)
             return clotheCell
-        case 2:
+        case 3:
             let product = womensDresses[0...2][indexPath.row]
             productCell.set(product: product)
             return productCell

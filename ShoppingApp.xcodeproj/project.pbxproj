@@ -26,6 +26,7 @@
 		C97CB8B12A9FD29E00ED78EB /* SPCategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8B02A9FD29E00ED78EB /* SPCategoryHeaderView.swift */; };
 		C97CB8B32AA0A29A00ED78EB /* ProductDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8B22AA0A29A00ED78EB /* ProductDetailVC.swift */; };
 		C97CB8B62AA0A49600ED78EB /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8B52AA0A49600ED78EB /* UIView+Ext.swift */; };
+		C97CB8B82AA1029B00ED78EB /* HeaderItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8B72AA1029B00ED78EB /* HeaderItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		C97CB8B02A9FD29E00ED78EB /* SPCategoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCategoryHeaderView.swift; sourceTree = "<group>"; };
 		C97CB8B22AA0A29A00ED78EB /* ProductDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailVC.swift; sourceTree = "<group>"; };
 		C97CB8B52AA0A49600ED78EB /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		C97CB8B72AA1029B00ED78EB /* HeaderItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 			children = (
 				C97CB8A22A9F9CE200ED78EB /* ClotheCell.swift */,
 				C97CB8A42A9F9CF200ED78EB /* ProductCell.swift */,
+				C97CB8B72AA1029B00ED78EB /* HeaderItemCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				C97CB8B62AA0A49600ED78EB /* UIView+Ext.swift in Sources */,
 				C97CB8AA2A9F9E2000ED78EB /* NetworkManager.swift in Sources */,
 				C97CB8B12A9FD29E00ED78EB /* SPCategoryHeaderView.swift in Sources */,
+				C97CB8B82AA1029B00ED78EB /* HeaderItemCell.swift in Sources */,
 				C97CB8A32A9F9CE200ED78EB /* ClotheCell.swift in Sources */,
 				C97CB89E2A9F9BAF00ED78EB /* SPButton.swift in Sources */,
 				C97CB8982A9F62BD00ED78EB /* ProductsVC.swift in Sources */,

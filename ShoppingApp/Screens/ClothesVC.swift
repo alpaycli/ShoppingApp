@@ -7,20 +7,6 @@
 
 import UIKit
 
-/*
- "mens-shirts",
-   "mens-shoes",
-   "mens-watches",
-   "womens-watches",
-   "womens-bags",
-   "womens-jewellery",
-   "sunglasses",
-   "automotive",
-   "motorcycle",
-   "lighting"
- 
- */
-
 enum ProductType: String {
     case smartphones = "smartphones"
     case laptops = "laptops"
@@ -43,15 +29,22 @@ enum ProductType: String {
     case motorcycle
 }
 
-class ClothesVC: UIViewController {
+final class ClothesVC: UIViewController {
+    
+    private let firstSectionHeaderId = "firstSectionHeaderId"
+    private let firstHeaderId = "firstHeaderId"
+    private let secondSectionHeaderId = "secondSectionHeaderId"
+    private let secondHeaderId = "secondHeaderId"
+    private let thirdSectionHeaderId = "thirdSectionHeaderId"
+    private let thirdHeaderId = "thirdHeaderId"
 
     private var collectionView: UICollectionView!
     
-    var sections: [ProductType] = [.smartphones, .laptops, .womensDresses, .tops, .skincare]
+    private var sections: [ProductType] = [.smartphones, .laptops, .womensDresses, .tops, .skincare]
     
-    var smartphones: [Product] = []
-    var laptops: [Product] = []
-    var womensDresses: [Product] = []
+    private var smartphones: [Product] = []
+    private var laptops: [Product] = []
+    private var womensDresses: [Product] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +65,10 @@ class ClothesVC: UIViewController {
         collectionView.register(HeaderItemCell.self, forCellWithReuseIdentifier: HeaderItemCell.reuseId)
         collectionView.register(ClotheCell.self, forCellWithReuseIdentifier: ClotheCell.reuseId)
         collectionView.register(ProductCell.self, forCellWithReuseIdentifier: ProductCell.reuseId)
+        
+        collectionView.register(FirstSectionHeaderView.self, forSupplementaryViewOfKind: firstSectionHeaderId, withReuseIdentifier: firstHeaderId)
+        collectionView.register(SecondSectionHeaderView.self, forSupplementaryViewOfKind: secondSectionHeaderId, withReuseIdentifier: secondHeaderId)
+        collectionView.register(ThirdSectionHeaderView.self, forSupplementaryViewOfKind: thirdSectionHeaderId, withReuseIdentifier: thirdHeaderId)
                 
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -101,7 +98,7 @@ class ClothesVC: UIViewController {
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.3), heightDimension: .fractionalHeight(0.3))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.3), heightDimension: .fractionalHeight(0.2))
                 
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         group.contentInsets = .init(top: 0, leading: 15, bottom: 0, trailing: 2)
@@ -116,15 +113,18 @@ class ClothesVC: UIViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1.0))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.50), heightDimension: .fractionalHeight(0.55))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.50), heightDimension: .fractionalHeight(0.44))
                 
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        group.contentInsets = .init(top: 0, leading: 15, bottom: 0, trailing: 2)
         
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .paging
+        section.boundarySupplementaryItems = [
+            NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(44)), elementKind: firstSectionHeaderId, alignment: .topLeading)
+        ]
+        section.contentInsets.leading = 15
         
         return section
     }
@@ -133,15 +133,18 @@ class ClothesVC: UIViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1.0))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.50), heightDimension: .fractionalHeight(0.55))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.50), heightDimension: .fractionalHeight(0.44))
                 
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        group.contentInsets = .init(top: 0, leading: 15, bottom: 0, trailing: 2)
         
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .paging
+        section.boundarySupplementaryItems = [
+            NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(44)), elementKind: secondSectionHeaderId, alignment: .top)
+        ]
+        section.contentInsets.leading = 15
         
         return section
     }
@@ -150,14 +153,17 @@ class ClothesVC: UIViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 25, leading: 5, bottom: 25, trailing: 5)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 25, leading: 0, bottom: 25, trailing: 0)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.50), heightDimension: .fractionalHeight(0.4))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.50), heightDimension: .fractionalHeight(0.44))
                 
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-        group.contentInsets = .init(top: 0, leading: 15, bottom: 0, trailing: 0)
         
         let section = NSCollectionLayoutSection(group: group)
+        section.boundarySupplementaryItems = [
+            NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(44)), elementKind: thirdSectionHeaderId, alignment: .top)
+        ]
+        section.contentInsets.leading = 15
         
         return section
     }
@@ -199,7 +205,8 @@ extension ClothesVC: UICollectionViewDelegate {
         
         switch indexPath.section {
         case 0:
-            break;
+            let selectedItem = IndexPath(item: 0, section: indexPath.row +  1)
+            collectionView.scrollToItem(at: selectedItem, at: .centeredVertically, animated: true)
         case 1:
             product = smartphones[indexPath.row]
         case 2:
@@ -269,4 +276,20 @@ extension ClothesVC: UICollectionViewDataSource {
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        let header: UICollectionReusableView
+        switch indexPath.section {
+        case 1:
+            header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: firstHeaderId, for: indexPath)
+        case 2:
+            header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: secondHeaderId, for: indexPath)
+        case 3:
+            header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: thirdHeaderId, for: indexPath)
+        default:
+            header = UICollectionReusableView()
+        }
+        
+        return header
+    }
 }

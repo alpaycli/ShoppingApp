@@ -79,3 +79,13 @@ enum APIError: Error, CustomStringConvertible {
         }
     }
 }
+
+enum SPError: String, Error {
+    case invalidUsername = "Entered username is not valid. Please try again."
+    case unableToComplete = "Unable to complete your request. Please check your internet connection."
+    case invalidResponse = "Invalid response from the server. Please try again."
+    case invalidData = "Invalid data from the server. Please try again."
+    case unableToFavorite = "Something wrong with favoriting this user. Please try again."
+    case alreadyInFavorite = "You have already favorited this item."
+}
+

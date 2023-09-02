@@ -13,7 +13,7 @@
 		C97CB8862A9F5E3A00ED78EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97CB8852A9F5E3A00ED78EB /* Assets.xcassets */; };
 		C97CB8892A9F5E3A00ED78EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97CB8872A9F5E3A00ED78EB /* LaunchScreen.storyboard */; };
 		C97CB8912A9F5F3500ED78EB /* SPTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8902A9F5F3500ED78EB /* SPTabBarController.swift */; };
-		C97CB8982A9F62BD00ED78EB /* ProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8972A9F62BD00ED78EB /* ProductsVC.swift */; };
+		C97CB8982A9F62BD00ED78EB /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8972A9F62BD00ED78EB /* FavoritesVC.swift */; };
 		C97CB89B2A9F9B8100ED78EB /* SPBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB89A2A9F9B8100ED78EB /* SPBodyLabel.swift */; };
 		C97CB89E2A9F9BAF00ED78EB /* SPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB89D2A9F9BAF00ED78EB /* SPButton.swift */; };
 		C97CB8A02A9F9BC600ED78EB /* SPTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB89F2A9F9BC600ED78EB /* SPTitleLabel.swift */; };
@@ -30,6 +30,8 @@
 		C97CB8BB2AA21D8900ED78EB /* FirstSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8BA2AA21D8900ED78EB /* FirstSectionHeaderView.swift */; };
 		C97CB8BD2AA21E2C00ED78EB /* SecondSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8BC2AA21E2C00ED78EB /* SecondSectionHeaderView.swift */; };
 		C97CB8BF2AA21E3F00ED78EB /* ThirdSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8BE2AA21E3F00ED78EB /* ThirdSectionHeaderView.swift */; };
+		C97CB8C12AA33DA800ED78EB /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8C02AA33DA700ED78EB /* PersistenceManager.swift */; };
+		C97CB8C32AA357AC00ED78EB /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8C22AA357AC00ED78EB /* FavoriteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +43,7 @@
 		C97CB8882A9F5E3A00ED78EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C97CB88A2A9F5E3A00ED78EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C97CB8902A9F5F3500ED78EB /* SPTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPTabBarController.swift; sourceTree = "<group>"; };
-		C97CB8972A9F62BD00ED78EB /* ProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsVC.swift; sourceTree = "<group>"; };
+		C97CB8972A9F62BD00ED78EB /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
 		C97CB89A2A9F9B8100ED78EB /* SPBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPBodyLabel.swift; sourceTree = "<group>"; };
 		C97CB89D2A9F9BAF00ED78EB /* SPButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPButton.swift; sourceTree = "<group>"; };
 		C97CB89F2A9F9BC600ED78EB /* SPTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPTitleLabel.swift; sourceTree = "<group>"; };
@@ -58,6 +60,8 @@
 		C97CB8BA2AA21D8900ED78EB /* FirstSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSectionHeaderView.swift; sourceTree = "<group>"; };
 		C97CB8BC2AA21E2C00ED78EB /* SecondSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSectionHeaderView.swift; sourceTree = "<group>"; };
 		C97CB8BE2AA21E3F00ED78EB /* ThirdSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdSectionHeaderView.swift; sourceTree = "<group>"; };
+		C97CB8C02AA33DA700ED78EB /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		C97CB8C22AA357AC00ED78EB /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				C97CB8802A9F5E3600ED78EB /* ClothesVC.swift */,
-				C97CB8972A9F62BD00ED78EB /* ProductsVC.swift */,
+				C97CB8972A9F62BD00ED78EB /* FavoritesVC.swift */,
 				C97CB8B22AA0A29A00ED78EB /* ProductDetailVC.swift */,
 			);
 			path = Screens;
@@ -174,6 +178,7 @@
 			children = (
 				C97CB8A22A9F9CE200ED78EB /* ClotheCell.swift */,
 				C97CB8A42A9F9CF200ED78EB /* ProductCell.swift */,
+				C97CB8C22AA357AC00ED78EB /* FavoriteCell.swift */,
 				C97CB8B72AA1029B00ED78EB /* HeaderItemCell.swift */,
 			);
 			path = Cells;
@@ -200,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				C97CB8B52AA0A49600ED78EB /* UIView+Ext.swift */,
+				C97CB8C02AA33DA700ED78EB /* PersistenceManager.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -286,13 +292,15 @@
 			files = (
 				C97CB8B62AA0A49600ED78EB /* UIView+Ext.swift in Sources */,
 				C97CB8AA2A9F9E2000ED78EB /* NetworkManager.swift in Sources */,
+				C97CB8C32AA357AC00ED78EB /* FavoriteCell.swift in Sources */,
 				C97CB8BB2AA21D8900ED78EB /* FirstSectionHeaderView.swift in Sources */,
 				C97CB8B12A9FD29E00ED78EB /* SPCategoryHeaderView.swift in Sources */,
 				C97CB8B82AA1029B00ED78EB /* HeaderItemCell.swift in Sources */,
 				C97CB8BD2AA21E2C00ED78EB /* SecondSectionHeaderView.swift in Sources */,
 				C97CB8A32A9F9CE200ED78EB /* ClotheCell.swift in Sources */,
 				C97CB89E2A9F9BAF00ED78EB /* SPButton.swift in Sources */,
-				C97CB8982A9F62BD00ED78EB /* ProductsVC.swift in Sources */,
+				C97CB8982A9F62BD00ED78EB /* FavoritesVC.swift in Sources */,
+				C97CB8C12AA33DA800ED78EB /* PersistenceManager.swift in Sources */,
 				C97CB8A02A9F9BC600ED78EB /* SPTitleLabel.swift in Sources */,
 				C97CB8812A9F5E3600ED78EB /* ClothesVC.swift in Sources */,
 				C97CB87D2A9F5E3600ED78EB /* AppDelegate.swift in Sources */,

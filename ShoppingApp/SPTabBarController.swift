@@ -25,11 +25,11 @@ class SPTabBarController: UITabBarController {
     }
     
     func createProductsVC() -> UINavigationController {
-        let productsVC = ProductsVC()
-        productsVC.title = "Products"
-        productsVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        let favoritesVC = FavoritesVC()
+        favoritesVC.title = "Products"
+        favoritesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         
-        return UINavigationController(rootViewController: productsVC)
+        return UINavigationController(rootViewController: favoritesVC)
     }
 
 }

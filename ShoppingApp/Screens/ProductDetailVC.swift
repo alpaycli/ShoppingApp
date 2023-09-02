@@ -89,6 +89,15 @@ class ProductDetailVC: UIViewController {
         
         saveButton.titleLabel?.text = "Save"
         saveButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        saveButton.addTarget(self, action: #selector(saveButtonAction), for: .touchUpInside)
     }
     
+    @objc func saveButtonAction() {
+        PersistenceManager.shared.updateWith(product, actionType: .add) { error in
+            guard error == nil else {
+                return
+            }
+            print("Everyting is ok. ----------------------------------------------------")
+        }
+    }
 }

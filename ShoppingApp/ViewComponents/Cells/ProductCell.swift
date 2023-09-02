@@ -14,6 +14,7 @@ class ProductCell: UICollectionViewCell {
     private let priceLabel = SPTitleLabel(textAlignment: .left, fontSize: 20)
     private let nameLabel = SPBodyLabel(textAlignment: .left)
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -58,3 +59,4 @@ class ProductCell: UICollectionViewCell {
     }
     
 }
+

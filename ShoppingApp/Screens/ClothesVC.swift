@@ -48,14 +48,20 @@ final class ClothesVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        navigationController?.navigationBar.prefersLargeTitles = true
+        setupViewController()
         fetchProduct(for: .smartphones)
         fetchProduct(for: .laptops)
         fetchProduct(for: .womensDresses)
         configureCollectionView()
     }
     
+    // MARK: View Setup
+    private func setupViewController() {
+        view.backgroundColor = .systemBackground
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    // MARK: Setting Collection View UI
     private func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createCompositionalLayout() )
         view.addSubview(collectionView)
@@ -93,7 +99,7 @@ final class ClothesVC: UIViewController {
         }
     }
     
-    func createHeaderSection() -> NSCollectionLayoutSection {
+    private func createHeaderSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -170,7 +176,7 @@ final class ClothesVC: UIViewController {
         return section
     }
     
-    
+    // MARK: Network
     private func fetchProduct(for type: ProductType) {
         guard let url = URL(string: "https://dummyjson.com/products/category/\(type.rawValue)") else { return }
         let urlRequest = URLRequest(url: url)
@@ -201,6 +207,7 @@ final class ClothesVC: UIViewController {
     
 }
 
+// MARK: Delegate Actions
 extension ClothesVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         var product: Product?
@@ -228,6 +235,7 @@ extension ClothesVC: UICollectionViewDelegate {
 }
 
 
+// MARK: Data Source
 extension ClothesVC: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

@@ -12,7 +12,7 @@ class SPTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UITabBar.appearance().tintColor = .systemGreen
-        viewControllers = [createClothesVC(), createProductsVC()]
+        viewControllers = [createClothesVC(), createProductsVC(), createBagVC()]
     }
     
 
@@ -27,9 +27,17 @@ class SPTabBarController: UITabBarController {
     func createProductsVC() -> UINavigationController {
         let favoritesVC = FavoritesVC()
         favoritesVC.title = "Products"
-        favoritesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        favoritesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
         
         return UINavigationController(rootViewController: favoritesVC)
+    }
+    
+    func createBagVC() -> UINavigationController {
+        let bagVC = BagVC()
+        bagVC.title = "Bag"
+        bagVC.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 1)
+        
+        return UINavigationController(rootViewController: bagVC)
     }
 
 }

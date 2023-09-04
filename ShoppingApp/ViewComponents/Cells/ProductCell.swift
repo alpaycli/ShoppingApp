@@ -10,9 +10,10 @@ import UIKit
 class ProductCell: UICollectionViewCell {
     static let reuseId = "ProductCell"
     
-    private let imageView = ItemImageView(frame: .zero)
-    private let priceLabel = SPTitleLabel(textAlignment: .left, fontSize: 20)
-    private let nameLabel = SPBodyLabel(textAlignment: .left)
+    private let productImageView = ItemImageView(frame: .zero)
+    private let priceLabel = SPTitleLabel(textAlignment: .left, fontSize: 16)
+    private let nameLabel = SPTitleLabel(textAlignment: .left, fontSize: 18)
+    private let descriptionLabel = SPBodyLabel(textAlignment: .left)
     
     
     override init(frame: CGRect) {
@@ -25,36 +26,42 @@ class ProductCell: UICollectionViewCell {
     }
     
     func set(product: Product) {
-        imageView.downloadImage(fromURL: product.thumbnail)
-        priceLabel.text = "$ \(product.price)"
+        productImageView.downloadImage(fromURL: product.thumbnail)
+        priceLabel.text = "$\(product.price)"
         nameLabel.text = product.title
+        descriptionLabel.text = product.description
+        descriptionLabel.numberOfLines = 2
     }
     
     
     private func configure() {
-        addSubview(imageView)
-        addSubview(priceLabel)
-        addSubview(nameLabel)
+        addSubviews(productImageView, priceLabel, nameLabel, descriptionLabel)
         
-        nameLabel.numberOfLines = 2
-        
+        let rightSideComponents = [priceLabel, nameLabel, descriptionLabel]
         let padding: CGFloat = 8
         
+        for component in rightSideComponents {
+            NSLayoutConstraint.activate([
+                component.leadingAnchor.constraint(equalTo: productImageView.trailingAnchor, constant: padding),
+                component.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
+            ])
+        }
+        
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-            imageView.widthAnchor.constraint(equalToConstant: 80),
-            imageView.heightAnchor.constraint(equalToConstant: 100),
+            productImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
+            productImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            productImageView.widthAnchor.constraint(equalToConstant: 80),
+            productImageView.heightAnchor.constraint(equalToConstant: 100),
             
-            priceLabel.topAnchor.constraint(equalTo: imageView.topAnchor),
-            priceLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: padding),
-            priceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+            priceLabel.topAnchor.constraint(equalTo: productImageView.topAnchor),
             priceLabel.heightAnchor.constraint(equalToConstant: 30),
             
-            nameLabel.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: padding),
-            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-            nameLabel.heightAnchor.constraint(equalToConstant: 40)
+            nameLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 3),
+            nameLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            descriptionLabel.bottomAnchor.constraint(equalTo: productImageView.bottomAnchor),
+            descriptionLabel.heightAnchor.constraint(equalToConstant: 40)
+            
         ])
     }
     

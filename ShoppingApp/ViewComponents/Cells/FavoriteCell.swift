@@ -14,11 +14,13 @@ class FavoriteCell: UITableViewCell {
     private let productImageView = ItemImageView(frame: .zero)
     private let priceLabel = SPTitleLabel(textAlignment: .left, fontSize: 16)
     private let nameLabel = SPTitleLabel(textAlignment: .left, fontSize: 18)
-    private let descriptionLabel = SPBodyLabel(textAlignment: .left)
+    private let addToBagButton = SPBorderedButton()
     
+    var buttonTapCallback: () -> ()  = { }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.isUserInteractionEnabled = true
         configure()
     }
     
@@ -28,18 +30,22 @@ class FavoriteCell: UITableViewCell {
     
     func set(product: Product) {
         productImageView.downloadImage(fromURL: product.thumbnail)
-        priceLabel.text = "$ \(product.price)"
+        priceLabel.text = "$\(product.price)"
         nameLabel.text = product.title
         nameLabel.numberOfLines = 1
-        descriptionLabel.text = product.description
-        descriptionLabel.numberOfLines = 2
+        addToBagButton.set(title: "MOVE TO BAG")
+        addToBagButton.addTarget(self, action: #selector(addToBagAction), for: .touchUpInside)
     }
     
+    @objc private func addToBagAction() {
+        buttonTapCallback()
+    }
     
     private func configure() {
-        addSubviews(productImageView, priceLabel, nameLabel, descriptionLabel)
+        addSubviews(productImageView, priceLabel, nameLabel, addToBagButton)
+        accessoryType = .disclosureIndicator
         
-        let rightSideComponents = [priceLabel, nameLabel, descriptionLabel]
+        let rightSideComponents = [priceLabel, nameLabel]
         let padding: CGFloat = 8
         
         for component in rightSideComponents {
@@ -61,8 +67,10 @@ class FavoriteCell: UITableViewCell {
             nameLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 3),
             nameLabel.heightAnchor.constraint(equalToConstant: 20),
             
-            descriptionLabel.bottomAnchor.constraint(equalTo: productImageView.bottomAnchor),
-            descriptionLabel.heightAnchor.constraint(equalToConstant: 40)
+            addToBagButton.bottomAnchor.constraint(equalTo: productImageView.bottomAnchor),
+            addToBagButton.leadingAnchor.constraint(equalTo: productImageView.trailingAnchor, constant: padding),
+            addToBagButton.widthAnchor.constraint(equalToConstant: 110),
+            addToBagButton.heightAnchor.constraint(equalToConstant: 30)
             
         ])
     }

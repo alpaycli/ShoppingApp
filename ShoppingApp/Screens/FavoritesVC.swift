@@ -78,9 +78,12 @@ extension FavoritesVC: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteCell.reuseId) as! FavoriteCell
         let favoriteItem = favorites[indexPath.row]
         cell.set(product: favoriteItem)
+        
+        cell.buttonTapCallback = {
+            // Delete item from favorites and add to bag
+        }
         return cell
     }
-    
 }
 
 extension FavoritesVC: UITableViewDelegate {

@@ -26,7 +26,7 @@ class ClotheCell: UICollectionViewCell {
     
     func set(product: Product) {
         imageView.downloadImage(fromURL: product.thumbnail)
-        priceLabel.text = "$ \(product.price)"
+        priceLabel.text = "$\(product.price)"
         nameLabel.text = product.title
         descriptionLabel.text = product.description
     }

@@ -32,6 +32,8 @@
 		C97CB8BF2AA21E3F00ED78EB /* ThirdSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8BE2AA21E3F00ED78EB /* ThirdSectionHeaderView.swift */; };
 		C97CB8C12AA33DA800ED78EB /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8C02AA33DA700ED78EB /* PersistenceManager.swift */; };
 		C97CB8C32AA357AC00ED78EB /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8C22AA357AC00ED78EB /* FavoriteCell.swift */; };
+		C97CB8C52AA51E0F00ED78EB /* BagVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8C42AA51E0F00ED78EB /* BagVC.swift */; };
+		C97CB8C72AA5220E00ED78EB /* SPBorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97CB8C62AA5220E00ED78EB /* SPBorderedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		C97CB8BE2AA21E3F00ED78EB /* ThirdSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdSectionHeaderView.swift; sourceTree = "<group>"; };
 		C97CB8C02AA33DA700ED78EB /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		C97CB8C22AA357AC00ED78EB /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		C97CB8C42AA51E0F00ED78EB /* BagVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagVC.swift; sourceTree = "<group>"; };
+		C97CB8C62AA5220E00ED78EB /* SPBorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPBorderedButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,7 @@
 		C97CB8952A9F5FF100ED78EB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C97CB8B22AA0A29A00ED78EB /* ProductDetailVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -151,7 +156,7 @@
 			children = (
 				C97CB8802A9F5E3600ED78EB /* ClothesVC.swift */,
 				C97CB8972A9F62BD00ED78EB /* FavoritesVC.swift */,
-				C97CB8B22AA0A29A00ED78EB /* ProductDetailVC.swift */,
+				C97CB8C42AA51E0F00ED78EB /* BagVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -169,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				C97CB89D2A9F9BAF00ED78EB /* SPButton.swift */,
+				C97CB8C62AA5220E00ED78EB /* SPBorderedButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -307,8 +313,10 @@
 				C97CB89B2A9F9B8100ED78EB /* SPBodyLabel.swift in Sources */,
 				C97CB8AF2A9FA6D100ED78EB /* APIService.swift in Sources */,
 				C97CB8A52A9F9CF200ED78EB /* ProductCell.swift in Sources */,
+				C97CB8C52AA51E0F00ED78EB /* BagVC.swift in Sources */,
 				C97CB8AD2A9F9F0F00ED78EB /* Product.swift in Sources */,
 				C97CB8912A9F5F3500ED78EB /* SPTabBarController.swift in Sources */,
+				C97CB8C72AA5220E00ED78EB /* SPBorderedButton.swift in Sources */,
 				C97CB8B32AA0A29A00ED78EB /* ProductDetailVC.swift in Sources */,
 				C97CB87F2A9F5E3600ED78EB /* SceneDelegate.swift in Sources */,
 				C97CB8BF2AA21E3F00ED78EB /* ThirdSectionHeaderView.swift in Sources */,
